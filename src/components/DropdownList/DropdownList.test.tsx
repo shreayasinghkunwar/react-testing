@@ -60,7 +60,21 @@ describe("<DropdownList />", () => {
 */
   });
 
-  test("Should render 3 li correctly", () => {});
+  test("Should render 3 li correctly", () => {
+    const spy= jest.fn();
+    // const onRemoveItem = jest.fn()
+      makeSut({onRemoveItem : spy});
+      const ShowBtn=screen.getByText('Show');
+      fireEvent.click(ShowBtn);
+
+      (data && data.map((item,index)=>{
+        let listItem= screen.getByTestId(`dropdown-li-${item.value}`);
+        expect(listItem).toHaveTextContent(item.label);
+      
+      }))
+
+
+  });
 
   test("Should call onRemoveItem callback correctly", () => {});
 });
