@@ -45,7 +45,20 @@ describe("<DropdownList />", () => {
 
   });
 
-  test("Should switch button label on click", () => {});
+  test("Should switch button label on click", () => {
+    const { container } = makeSut({});
+   const button= screen.getByRole('button');
+   expect(button).toHaveTextContent('Show');
+   fireEvent.click(button);
+   expect(button).toHaveTextContent('Hide');
+   /*
+   expect( screen.getByText('Show')).toBeInTheDocument();
+   fireEvent.click(screen.getByText('Show'));
+    expect( screen.getByText('Hide')).toBeInTheDocument();
+    fireEvent.click(screen.getByText('Hide'));
+    expect( screen.getByText('Show')).toBeInTheDocument();
+*/
+  });
 
   test("Should render 3 li correctly", () => {});
 
